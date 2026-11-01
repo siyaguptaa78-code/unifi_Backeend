@@ -17,6 +17,42 @@ export const DEFAULT_SETTINGS = {
     value: "FULL_REFUND_BEFORE_COMPLETION",
     description: "Cancelled orders (before completion) are refunded in full to the points wallet. PENDING CLIENT APPROVAL.",
   },
+  "orders.preOrdersEnabled": {
+    value: true,
+    description: "Global toggle for allowing online pre-orders from outside the cafe",
+  },
+  "orders.defaultPickupSlots": {
+    value: ["15-20 mins", "30 mins", "45 mins", "1 hour", "1.5 hours"],
+    description: "Available pre-order customer arrival time slot options",
+  },
+  "website.heroHeadline": {
+    value: "India's Premier Cafe & Co-Working Membership Club",
+    description: "Primary headline displayed on the public homepage",
+  },
+  "website.heroSubtitle": {
+    value: "Recharge ₹5,000 for 5,000 Points & 150 Hours of Cafe Access across all prime locations.",
+    description: "Subtitle copy for public marketing pages",
+  },
+  "website.announcementActive": {
+    value: true,
+    description: "Toggle visibility of top marketing announcement banner",
+  },
+  "website.announcementBanner": {
+    value: "🎉 New branches live in Indiranagar & Koramangala! Pre-order online before arrival.",
+    description: "Text content for the global top banner",
+  },
+  "website.promoCode": {
+    value: "WELCOME2026",
+    description: "Featured promotional code displayed to prospective customers",
+  },
+  "website.promoText": {
+    value: "Special introductory offer: Get 5,000 points + 150 hours of premium cafe time.",
+    description: "Marketing copy accompanying promotional code",
+  },
+  "platform.maintenanceMode": {
+    value: false,
+    description: "Emergency platform maintenance flag",
+  },
 } as const;
 
 export type SettingKey = keyof typeof DEFAULT_SETTINGS;

@@ -25,3 +25,4 @@ services:
         value: mock
       - key: WHATSAPP_PROVIDER
         value: mock
+

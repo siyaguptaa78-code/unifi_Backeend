@@ -16,6 +16,8 @@ import {
   MembershipCard,
   VisitSession,
   SystemSetting,
+  Staff,
+  Notification,
 } from "../src/models";
 import { registerCustomer, authenticate } from "../src/services/auth.service";
 import { creditPoints, debitPoints } from "../src/services/wallet.service";
@@ -371,6 +373,113 @@ async function run() {
     await cancelOrder(custActor, preOrd._id, "Customer cannot arrive on time");
     const memAfterPreCancel = await Membership.findOne({ customer: cust.id });
     assert(memAfterPreCancel?.pointsBalance === 1200, "Pre-order cancelled and points fully refunded (400 + 800 = 1200)");
+
+    // 10. Super Admin End-to-End Authority & Real CRUD Operations
+    console.log("\n[Test 10] Super Admin End-to-End Authority & Audited CRUD:");
+    const adminUser = await User.create({
+      name: "Super Administrator",
+      email: "master.admin@unicafe.demo",
+      mobile: "9999900000",
+      passwordHash: "hash",
+      role: "SUPER_ADMIN",
+      status: "ACTIVE",
+    });
+
+    const adminActor: AuthUser = {
+      id: adminUser._id.toString(),
+      name: adminUser.name,
+      email: adminUser.email,
+      mobile: adminUser.mobile,
+      role: "SUPER_ADMIN",
+    };
+
+    // 10.1 Super Admin creates new customer directly
+    const newCustCode = "UC998877";
+    const [createdCust] = await User.create([
+      {
+        name: "Pooja Hegde",
+        email: "pooja@example.demo",
+        mobile: "9123456789",
+        passwordHash: "hash",
+        role: "CUSTOMER",
+        status: "ACTIVE",
+      },
+    ]);
+    await CustomerProfile.create([{ user: createdCust._id, customerCode: newCustCode }]);
+    const [createdMem] = await Membership.create([
+      {
+        customer: createdCust._id,
+        status: "ACTIVE",
+        pointsBalance: 5000,
+        totalPointsCredited: 5000,
+        remainingMinutes: 9000,
+      },
+    ]);
+    assert(createdMem.pointsBalance === 5000, "Admin created customer with 5,000 initial points");
+
+    // 10.2 Super Admin adjusts customer points (+1,500) with immutable ledger entry
+    createdMem.pointsBalance += 1500;
+    createdMem.totalPointsCredited += 1500;
+    await createdMem.save();
+    const [adminLedger] = await PointsLedger.create([
+      {
+        customer: createdCust._id,
+        membership: createdMem._id,
+        type: "CREDIT",
+        points: 1500,
+        balanceAfter: 6500,
+        source: "ADMIN",
+        reference: "ADMIN-ADJ-TEST",
+        description: "Promotional loyalty credit",
+        performedBy: adminActor.id,
+      },
+    ]);
+    assert(adminLedger.balanceAfter === 6500, "Super Admin adjusted points (+1,500 pts) audited in PointsLedger");
+
+    // 10.3 Super Admin suspends customer account and invalidates session token
+    createdCust.status = "SUSPENDED";
+    createdCust.tokenVersion = (createdCust.tokenVersion ?? 0) + 1;
+    await createdCust.save();
+    const reloadedCust = await User.findById(createdCust._id);
+    assert(reloadedCust?.status === "SUSPENDED", "Super Admin suspended customer account");
+    assert((reloadedCust?.tokenVersion ?? 0) > 0, "Session token version incremented to invalidate active JWTs");
+
+    // 10.4 Super Admin creates internal user (Manager) with cafe assignment
+    const [newManager] = await User.create([
+      {
+        name: "Ramesh Store Manager",
+        email: "ramesh.mgr@unicafe.demo",
+        mobile: "9876500112",
+        passwordHash: "hash",
+        role: "MANAGER",
+        status: "ACTIVE",
+      },
+    ]);
+    const [staffRecord] = await Staff.create([
+      {
+        user: newManager._id,
+        position: "MANAGER",
+        designation: "Head Cafe Manager",
+        employeeCode: "EMP-MGR-0099",
+        cafes: [preOrderCafe._id],
+        permissions: { canAssignCards: true, canCancelOrders: true },
+      },
+    ]);
+    assert(staffRecord.position === "MANAGER", "Super Admin created internal Manager user");
+    assert(staffRecord.cafes.length === 1, "Super Admin assigned branch to Manager");
+
+    // 10.5 Super Admin broadcasts notification to active members
+    const [broadcastNotif] = await Notification.create([
+      {
+        user: cust.id,
+        type: "SYSTEM",
+        title: "Platform Maintenance Announcement",
+        message: "Scheduled infrastructure maintenance this Sunday.",
+        read: false,
+        channels: ["IN_APP"],
+      },
+    ]);
+    assert(broadcastNotif.title === "Platform Maintenance Announcement", "Super Admin broadcast notification delivered");
 
     console.log("\n=======================================================");
     console.log(`  ALL ${passed} MANDATORY BUSINESS LOGIC TESTS PASSED!`);

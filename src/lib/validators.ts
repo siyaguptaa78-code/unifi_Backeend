@@ -199,3 +199,52 @@ export const dateRangeQuery = z.object({
   limit: z.coerce.number().int().min(1).max(100).default(20),
 });
 
+export const adminCreateCustomerSchema = z.object({
+  name: nameSchema,
+  email: emailSchema,
+  mobile: mobileSchema,
+  password: passwordSchema.optional().or(z.literal("")),
+  initialPoints: z.coerce.number().int().min(0).default(0),
+  initialHours: z.coerce.number().min(0).default(0),
+  status: z.enum(["ACTIVE", "SUSPENDED"]).default("ACTIVE"),
+});
+
+export const adminUpdateCustomerSchema = z.object({
+  name: nameSchema.optional(),
+  email: emailSchema.optional(),
+  mobile: mobileSchema.optional(),
+  status: z.enum(["ACTIVE", "SUSPENDED"]).optional(),
+});
+
+export const adminAdjustMembershipSchema = z.object({
+  pointsDelta: z.coerce.number().int().optional().default(0),
+  hoursDelta: z.coerce.number().optional().default(0),
+  status: z.enum(["ACTIVE", "INACTIVE", "SUSPENDED"]).optional(),
+  reason: z.string().trim().min(3, "Reason is required").max(300),
+});
+
+export const adminResetPasswordSchema = z.object({
+  password: passwordSchema,
+});
+
+export const adminUpdateUserSchema = z.object({
+  name: nameSchema.optional(),
+  email: emailSchema.optional(),
+  mobile: mobileSchema.optional(),
+  role: z.enum(["SUPER_ADMIN", "SUPERVISOR", "FRANCHISE_OWNER", "MANAGER", "STAFF"]).optional(),
+  status: z.enum(["ACTIVE", "SUSPENDED"]).optional(),
+  cafes: z.array(objectId).optional(),
+  supervisor: objectId.optional().or(z.literal("")).nullable(),
+  designation: z.string().trim().max(80).optional(),
+  canAssignCards: z.boolean().optional(),
+  canCancelOrders: z.boolean().optional(),
+});
+
+export const adminBroadcastNotificationSchema = z.object({
+  title: z.string().trim().min(2).max(120),
+  message: z.string().trim().min(5).max(1000),
+  type: z.enum(["SYSTEM", "OFFER", "ALERT", "CAFE_UPDATE"]).default("SYSTEM"),
+  link: z.string().trim().optional(),
+});
+
+

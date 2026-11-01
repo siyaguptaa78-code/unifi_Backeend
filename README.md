@@ -60,3 +60,4 @@ This repository includes a `render.yaml` Blueprint for zero-friction deployment 
 - HMAC-SHA256 signature verification for payments.
 - Idempotency key protection against duplicate order submissions.
 - Contactless card anti-passback and duplicate-tap protection windows.
+
