@@ -1,5 +1,5 @@
-import { SystemSetting } from "@/models/SystemSetting";
-import { DEFAULT_SETTINGS, type SettingKey } from "@/lib/constants";
+import { SystemSetting } from "../models/SystemSetting";
+import { DEFAULT_SETTINGS, type SettingKey } from "../lib/constants";
 
 type SettingValue<K extends SettingKey> = (typeof DEFAULT_SETTINGS)[K]["value"] extends number
   ? number

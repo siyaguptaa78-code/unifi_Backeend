@@ -3,8 +3,8 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
-import { apiRouter } from "@/routes/api.routes";
-import { errorHandler } from "@/middleware/auth";
+import { apiRouter } from "./routes/api.routes";
+import { errorHandler } from "./middleware/auth";
 
 const PORT = Number(process.env.PORT || 5000);
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/unicafe?replicaSet=rs0";

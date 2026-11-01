@@ -20,17 +20,17 @@ import {
   MembershipCard,
   VisitSession,
   SystemSetting,
-} from "@/models";
-import { registerCustomer, authenticate } from "@/services/auth.service";
-import { creditPoints, debitPoints, getWalletSummary } from "@/services/wallet.service";
-import { applyMembershipRecharge } from "@/services/membership.service";
-import { processScan, correctVisit } from "@/services/visit.service";
-import { placeOrder, cancelOrder } from "@/services/order.service";
-import { canAccessCafe, getCafeScope } from "@/services/scope.service";
-import { verifyCheckoutSignature, verifyWebhookSignature } from "@/lib/payments/razorpay";
-import { DEFAULT_SETTINGS } from "@/lib/constants";
-import { resetDbCache } from "@/lib/db";
-import type { AuthUser } from "@/lib/auth/session";
+} from "../src/models";
+import { registerCustomer, authenticate } from "../src/services/auth.service";
+import { creditPoints, debitPoints, getWalletSummary } from "../src/services/wallet.service";
+import { applyMembershipRecharge } from "../src/services/membership.service";
+import { processScan, correctVisit } from "../src/services/visit.service";
+import { placeOrder, cancelOrder } from "../src/services/order.service";
+import { canAccessCafe, getCafeScope } from "../src/services/scope.service";
+import { verifyCheckoutSignature, verifyWebhookSignature } from "../src/lib/payments/razorpay";
+import { DEFAULT_SETTINGS } from "../src/lib/constants";
+import { resetDbCache } from "../src/lib/db";
+import type { AuthUser } from "../src/lib/auth/session";
 
 let replSet: MongoMemoryReplSet;
 

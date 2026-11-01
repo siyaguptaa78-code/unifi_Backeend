@@ -1,5 +1,5 @@
 import { Schema, model, models, type InferSchemaType, type Model, Types } from "mongoose";
-import { ROLES } from "@/lib/rbac";
+import { ROLES } from "../lib/rbac";
 
 const userSchema = new Schema(
   {

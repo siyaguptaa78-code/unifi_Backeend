@@ -1,10 +1,10 @@
 import type { Request, Response, NextFunction } from "express";
-import { verifySession, SESSION_COOKIE } from "@/lib/auth/jwt";
-import { connectDB } from "@/lib/db";
-import { User } from "@/models/User";
-import { AppError } from "@/lib/errors";
-import type { Role } from "@/lib/rbac";
-import type { AuthUser } from "@/lib/auth/session";
+import { verifySession, SESSION_COOKIE } from "../lib/auth/jwt";
+import { connectDB } from "../lib/db";
+import { User } from "../models/User";
+import { AppError } from "../lib/errors";
+import type { Role } from "../lib/rbac";
+import type { AuthUser } from "../lib/auth/session";
 
 declare global {
   namespace Express {

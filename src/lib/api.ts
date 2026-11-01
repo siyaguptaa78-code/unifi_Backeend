@@ -1,11 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { ZodError, type ZodSchema, type z } from "zod";
 import mongoose from "mongoose";
-import { AppError, Errors } from "@/lib/errors";
-import { connectDB } from "@/lib/db";
-import { getSessionUser, type AuthUser } from "@/lib/auth/session";
-import { hasPermission, type Permission, type Role } from "@/lib/rbac";
-import { rateLimit } from "@/lib/rate-limit";
+import { AppError, Errors } from "./errors";
+import { connectDB } from "./db";
+import { getSessionUser, type AuthUser } from "./auth/session";
+import { hasPermission, type Permission, type Role } from "./rbac";
+import { rateLimit } from "./rate-limit";
 
 export type ApiSuccess<T> = { success: true; data: T; meta?: Record<string, unknown> };
 export type ApiFailure = { success: false; error: { code: string; message: string; details?: unknown } };

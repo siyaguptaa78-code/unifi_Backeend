@@ -1,6 +1,6 @@
 import type { ClientSession, Types } from "mongoose";
-import { Notification, NOTIFICATION_TYPES } from "@/models/Notification";
-import { User } from "@/models/User";
+import { Notification, NOTIFICATION_TYPES } from "../models/Notification";
+import { User } from "../models/User";
 
 export type NotificationType = (typeof NOTIFICATION_TYPES)[number];
 

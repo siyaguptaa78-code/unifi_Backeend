@@ -1,6 +1,6 @@
 import type { ClientSession, Types } from "mongoose";
-import { AuditLog } from "@/models/AuditLog";
-import type { AuthUser } from "@/lib/auth/session";
+import { AuditLog } from "../models/AuditLog";
+import type { AuthUser } from "../lib/auth/session";
 
 export async function logAudit(
   actor: AuthUser | null,

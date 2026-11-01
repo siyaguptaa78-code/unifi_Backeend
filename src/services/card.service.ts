@@ -1,14 +1,14 @@
 import { Types } from "mongoose";
-import { MembershipCard } from "@/models/MembershipCard";
-import { Membership } from "@/models/Membership";
-import { Staff } from "@/models/Staff";
-import { User } from "@/models/User";
-import { Errors } from "@/lib/errors";
-import { withTransaction } from "@/lib/db";
-import { generateCardNumber } from "@/services/membership.service";
-import { assertCafeAccess } from "@/services/scope.service";
-import { logAudit } from "@/services/audit.service";
-import type { AuthUser } from "@/lib/auth/session";
+import { MembershipCard } from "../models/MembershipCard";
+import { Membership } from "../models/Membership";
+import { Staff } from "../models/Staff";
+import { User } from "../models/User";
+import { Errors } from "../lib/errors";
+import { withTransaction } from "../lib/db";
+import { generateCardNumber } from "./membership.service";
+import { assertCafeAccess } from "./scope.service";
+import { logAudit } from "./audit.service";
+import type { AuthUser } from "../lib/auth/session";
 
 /** Staff may assign cards only if granted `canAssignCards`; managers and admins always can. */
 export async function assertCanAssignCards(user: AuthUser) {

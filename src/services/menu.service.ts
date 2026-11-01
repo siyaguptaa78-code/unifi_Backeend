@@ -1,12 +1,12 @@
 import { Types } from "mongoose";
-import { MenuCategory } from "@/models/MenuCategory";
-import { MenuItem } from "@/models/MenuItem";
-import { CafeMenuCustomization } from "@/models/CafeMenuCustomization";
-import { Cafe } from "@/models/Cafe";
-import { Errors } from "@/lib/errors";
-import { assertCafeAccess } from "@/services/scope.service";
-import { logAudit } from "@/services/audit.service";
-import type { AuthUser } from "@/lib/auth/session";
+import { MenuCategory } from "../models/MenuCategory";
+import { MenuItem } from "../models/MenuItem";
+import { CafeMenuCustomization } from "../models/CafeMenuCustomization";
+import { Cafe } from "../models/Cafe";
+import { Errors } from "../lib/errors";
+import { assertCafeAccess } from "./scope.service";
+import { logAudit } from "./audit.service";
+import type { AuthUser } from "../lib/auth/session";
 
 export type ResolvedMenuItem = {
   _id: string;

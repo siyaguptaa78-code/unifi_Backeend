@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
-import { SESSION_COOKIE, verifySession } from "@/lib/auth/jwt";
-import { connectDB } from "@/lib/db";
-import { User } from "@/models/User";
-import type { Role } from "@/lib/rbac";
+import { SESSION_COOKIE, verifySession } from "./jwt";
+import { connectDB } from "../db";
+import { User } from "../../models/User";
+import type { Role } from "../rbac";
 
 export type AuthUser = { id: string; role: Role; name: string; email: string; mobile: string };
 

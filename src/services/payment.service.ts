@@ -1,17 +1,17 @@
 import type { Types } from "mongoose";
-import { Payment } from "@/models/Payment";
-import { Membership } from "@/models/Membership";
-import { User } from "@/models/User";
-import { Errors } from "@/lib/errors";
-import { withTransaction } from "@/lib/db";
-import { makeReference, randomHex } from "@/lib/ids";
-import { razorpayConfigured, razorpayCreateOrder, razorpayRefund, verifyCheckoutSignature } from "@/lib/payments/razorpay";
-import { applyMembershipRecharge } from "@/services/membership.service";
-import { getMembershipConfig } from "@/services/settings.service";
-import { notify } from "@/services/notification.service";
-import { debitPoints } from "@/services/wallet.service";
-import { logAudit } from "@/services/audit.service";
-import type { AuthUser } from "@/lib/auth/session";
+import { Payment } from "../models/Payment";
+import { Membership } from "../models/Membership";
+import { User } from "../models/User";
+import { Errors } from "../lib/errors";
+import { withTransaction } from "../lib/db";
+import { makeReference, randomHex } from "../lib/ids";
+import { razorpayConfigured, razorpayCreateOrder, razorpayRefund, verifyCheckoutSignature } from "../lib/payments/razorpay";
+import { applyMembershipRecharge } from "./membership.service";
+import { getMembershipConfig } from "./settings.service";
+import { notify } from "./notification.service";
+import { debitPoints } from "./wallet.service";
+import { logAudit } from "./audit.service";
+import type { AuthUser } from "../lib/auth/session";
 
 type Id = string | Types.ObjectId;
 

@@ -1,16 +1,16 @@
 import type { ClientSession, Types } from "mongoose";
-import { Membership } from "@/models/Membership";
-import { MembershipTransaction } from "@/models/MembershipTransaction";
-import { MembershipCard } from "@/models/MembershipCard";
-import { Payment } from "@/models/Payment";
-import { PointsLedger } from "@/models/PointsLedger";
-import { VisitSession } from "@/models/VisitSession";
-import { Order } from "@/models/Order";
-import { Errors } from "@/lib/errors";
-import { randomDigits, randomHex } from "@/lib/ids";
-import { creditPoints } from "@/services/wallet.service";
-import { getMembershipConfig, getSetting } from "@/services/settings.service";
-import { notify } from "@/services/notification.service";
+import { Membership } from "../models/Membership";
+import { MembershipTransaction } from "../models/MembershipTransaction";
+import { MembershipCard } from "../models/MembershipCard";
+import { Payment } from "../models/Payment";
+import { PointsLedger } from "../models/PointsLedger";
+import { VisitSession } from "../models/VisitSession";
+import { Order } from "../models/Order";
+import { Errors } from "../lib/errors";
+import { randomDigits, randomHex } from "../lib/ids";
+import { creditPoints } from "./wallet.service";
+import { getMembershipConfig, getSetting } from "./settings.service";
+import { notify } from "./notification.service";
 
 type Id = string | Types.ObjectId;
 const opt = (session?: ClientSession) => (session ? { session } : {});

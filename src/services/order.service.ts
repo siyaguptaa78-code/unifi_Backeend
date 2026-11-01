@@ -1,21 +1,21 @@
 import { Types } from "mongoose";
-import { Order, type OrderStatus } from "@/models/Order";
-import { OrderItem } from "@/models/OrderItem";
-import { Cafe } from "@/models/Cafe";
-import { Staff } from "@/models/Staff";
-import { Membership } from "@/models/Membership";
-import { Errors } from "@/lib/errors";
-import { withTransaction } from "@/lib/db";
-import { makeReference } from "@/lib/ids";
-import { getCafeMenu } from "@/services/menu.service";
-import { creditPoints, debitPoints, maybeNotifyLowPoints } from "@/services/wallet.service";
-import { assertCafeAccess } from "@/services/scope.service";
-import { getSetting } from "@/services/settings.service";
-import { notify, type NotificationType } from "@/services/notification.service";
-import { logAudit } from "@/services/audit.service";
-import type { AuthUser } from "@/lib/auth/session";
+import { Order, type OrderStatus } from "../models/Order";
+import { OrderItem } from "../models/OrderItem";
+import { Cafe } from "../models/Cafe";
+import { Staff } from "../models/Staff";
+import { Membership } from "../models/Membership";
+import { Errors } from "../lib/errors";
+import { withTransaction } from "../lib/db";
+import { makeReference } from "../lib/ids";
+import { getCafeMenu } from "./menu.service";
+import { creditPoints, debitPoints, maybeNotifyLowPoints } from "./wallet.service";
+import { assertCafeAccess } from "./scope.service";
+import { getSetting } from "./settings.service";
+import { notify, type NotificationType } from "./notification.service";
+import { logAudit } from "./audit.service";
+import type { AuthUser } from "../lib/auth/session";
 import type { z } from "zod";
-import type { placeOrderSchema } from "@/lib/validators";
+import type { placeOrderSchema } from "../lib/validators";
 
 export const ORDER_TRANSITIONS: Record<OrderStatus, OrderStatus[]> = {
   PENDING: ["ACCEPTED", "CANCELLED"],

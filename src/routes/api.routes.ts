@@ -1,16 +1,16 @@
 import { Router } from "express";
-import { authenticate, requireAuth, requireRole } from "@/middleware/auth";
-import { Errors } from "@/lib/errors";
-import { User, Cafe, Order, OrderItem, VisitSession, Membership, CustomerProfile, MenuItem, MenuCategory, Staff, Franchise, FranchisePackage, Payment, PointsLedger, SystemSetting, AuditLog } from "@/models";
-import { registerCustomer, authenticate as authenticateUser, hashPassword } from "@/services/auth.service";
-import { placeOrder, updateOrderStatus, cancelOrder } from "@/services/order.service";
-import { processScan } from "@/services/visit.service";
-import { assignCard, normalizeUid } from "@/services/card.service";
-import { getCafeMenu } from "@/services/menu.service";
-import { createMembershipPaymentOrder, verifyRazorpayCheckout, completeDemoPayment } from "@/services/payment.service";
-import { getMembershipOverview } from "@/services/membership.service";
-import { signSession, SESSION_COOKIE, sessionCookieOptions } from "@/lib/auth/jwt";
-import { registerSchema, placeOrderSchema, scanSchema, cardAssignSchema, cafeSchema } from "@/lib/validators";
+import { authenticate, requireAuth, requireRole } from "../middleware/auth";
+import { Errors } from "../lib/errors";
+import { User, Cafe, Order, OrderItem, VisitSession, Membership, CustomerProfile, MenuItem, MenuCategory, Staff, Franchise, FranchisePackage, Payment, PointsLedger, SystemSetting, AuditLog } from "../models";
+import { registerCustomer, authenticate as authenticateUser, hashPassword } from "../services/auth.service";
+import { placeOrder, updateOrderStatus, cancelOrder } from "../services/order.service";
+import { processScan } from "../services/visit.service";
+import { assignCard, normalizeUid } from "../services/card.service";
+import { getCafeMenu } from "../services/menu.service";
+import { createMembershipPaymentOrder, verifyRazorpayCheckout, completeDemoPayment } from "../services/payment.service";
+import { getMembershipOverview } from "../services/membership.service";
+import { signSession, SESSION_COOKIE, sessionCookieOptions } from "../lib/auth/jwt";
+import { registerSchema, placeOrderSchema, scanSchema, cardAssignSchema, cafeSchema } from "../lib/validators";
 
 export const apiRouter = Router();
 

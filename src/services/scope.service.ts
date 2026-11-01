@@ -1,9 +1,9 @@
 import { Types } from "mongoose";
-import { Cafe } from "@/models/Cafe";
-import { Franchise } from "@/models/Franchise";
-import { Staff } from "@/models/Staff";
-import { Errors } from "@/lib/errors";
-import type { AuthUser } from "@/lib/auth/session";
+import { Cafe } from "../models/Cafe";
+import { Franchise } from "../models/Franchise";
+import { Staff } from "../models/Staff";
+import { Errors } from "../lib/errors";
+import type { AuthUser } from "../lib/auth/session";
 
 /**
  * Central cafe-scope resolution. Returns `null` for unrestricted access (Super Admin),

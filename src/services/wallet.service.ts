@@ -1,9 +1,9 @@
 import type { ClientSession, Types } from "mongoose";
-import { Membership } from "@/models/Membership";
-import { PointsLedger } from "@/models/PointsLedger";
-import { Errors } from "@/lib/errors";
-import { getSetting } from "@/services/settings.service";
-import { notify } from "@/services/notification.service";
+import { Membership } from "../models/Membership";
+import { PointsLedger } from "../models/PointsLedger";
+import { Errors } from "../lib/errors";
+import { getSetting } from "./settings.service";
+import { notify } from "./notification.service";
 
 type Id = string | Types.ObjectId;
 

@@ -1,15 +1,15 @@
 import bcrypt from "bcryptjs";
-import { User } from "@/models/User";
-import { CustomerProfile } from "@/models/CustomerProfile";
-import { Membership } from "@/models/Membership";
-import { Errors } from "@/lib/errors";
-import { withTransaction } from "@/lib/db";
-import { randomDigits, randomHex, sha256 } from "@/lib/ids";
-import { getProvider } from "@/services/notification.service";
-import { logAudit } from "@/services/audit.service";
+import { User } from "../models/User";
+import { CustomerProfile } from "../models/CustomerProfile";
+import { Membership } from "../models/Membership";
+import { Errors } from "../lib/errors";
+import { withTransaction } from "../lib/db";
+import { randomDigits, randomHex, sha256 } from "../lib/ids";
+import { getProvider } from "./notification.service";
+import { logAudit } from "./audit.service";
 import type { z } from "zod";
-import type { registerSchema } from "@/lib/validators";
-import type { Role } from "@/lib/rbac";
+import type { registerSchema } from "../lib/validators";
+import type { Role } from "../lib/rbac";
 
 const BCRYPT_ROUNDS = 10;
 let DUMMY_HASH: string | undefined;

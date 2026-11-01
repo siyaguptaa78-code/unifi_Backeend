@@ -1,21 +1,21 @@
 import { Types } from "mongoose";
-import { MembershipCard } from "@/models/MembershipCard";
-import { Membership } from "@/models/Membership";
-import { MembershipTransaction } from "@/models/MembershipTransaction";
-import { VisitSession } from "@/models/VisitSession";
-import { CustomerProfile } from "@/models/CustomerProfile";
-import { Cafe } from "@/models/Cafe";
-import { User } from "@/models/User";
-import { Errors } from "@/lib/errors";
-import { withTransaction } from "@/lib/db";
-import { makeReference } from "@/lib/ids";
-import { consumeMinutes, notifyHoursThresholds } from "@/services/membership.service";
-import { assertCafeAccess } from "@/services/scope.service";
-import { getSetting } from "@/services/settings.service";
-import { notify } from "@/services/notification.service";
-import { logAudit } from "@/services/audit.service";
-import { normalizeUid } from "@/services/card.service";
-import type { AuthUser } from "@/lib/auth/session";
+import { MembershipCard } from "../models/MembershipCard";
+import { Membership } from "../models/Membership";
+import { MembershipTransaction } from "../models/MembershipTransaction";
+import { VisitSession } from "../models/VisitSession";
+import { CustomerProfile } from "../models/CustomerProfile";
+import { Cafe } from "../models/Cafe";
+import { User } from "../models/User";
+import { Errors } from "../lib/errors";
+import { withTransaction } from "../lib/db";
+import { makeReference } from "../lib/ids";
+import { consumeMinutes, notifyHoursThresholds } from "./membership.service";
+import { assertCafeAccess } from "./scope.service";
+import { getSetting } from "./settings.service";
+import { notify } from "./notification.service";
+import { logAudit } from "./audit.service";
+import { normalizeUid } from "./card.service";
+import type { AuthUser } from "../lib/auth/session";
 
 export type ScanInput = { uid: string; cafeId: string; mode: "AUTO" | "ENTRY" | "EXIT"; deviceId: string };
 

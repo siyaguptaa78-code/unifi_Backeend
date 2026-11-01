@@ -1,5 +1,5 @@
 import { SignJWT, jwtVerify } from "jose";
-import type { Role } from "@/lib/rbac";
+import type { Role } from "../rbac";
 
 export const SESSION_COOKIE = "uc_session";
 
