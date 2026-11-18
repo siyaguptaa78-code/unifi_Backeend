@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: unicafe-backend
+    name: unifi-cafe-backend
     runtime: node
     plan: free
     region: singapore

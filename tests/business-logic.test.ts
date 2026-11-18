@@ -76,7 +76,7 @@ beforeEach(async () => {
   ]);
 });
 
-describe("UniCafe Mandatory Business Logic & Rules Suite", () => {
+describe("Unifi Cafe Mandatory Business Logic & Rules Suite", () => {
   // Test 1 & 2: Registration, Authentication & Profiles
   it("registers customer, enforces unique email/mobile, hashes password, and authenticates", async () => {
     const cust = await registerCustomer({
@@ -229,7 +229,7 @@ describe("UniCafe Mandatory Business Logic & Rules Suite", () => {
     });
 
     const cafe = await Cafe.create({
-      name: "UniCafe Indiranagar",
+      name: "Unifi Cafe Indiranagar",
       code: "UC-BLR-01",
       slug: "indiranagar",
       address: { line1: "100ft Rd", city: "Bengaluru", state: "KA", pincode: "560038" },
@@ -302,7 +302,7 @@ describe("UniCafe Mandatory Business Logic & Rules Suite", () => {
     });
 
     const cafe = await Cafe.create({
-      name: "UniCafe Koramangala",
+      name: "Unifi Cafe Koramangala",
       code: "UC-BLR-02",
       slug: "koramangala",
       address: { line1: "80ft Rd", city: "Bengaluru", state: "KA", pincode: "560034" },

@@ -1,9 +1,9 @@
-# UniCafe — Production Infrastructure & Environment Reference
+# Unifi Cafe — Production Infrastructure & Environment Reference
 
 ## 1. MongoDB Atlas Configuration & Replica Sets
 
 ### ACID Transactions Requirement
-UniCafe enforces strict multi-document ACID transactions across:
+Unifi Cafe enforces strict multi-document ACID transactions across:
 - `Membership` (points balance, remaining minutes)
 - `PointsLedger` (atomic credits & debits)
 - `Payment` (idempotent webhook & capture events)

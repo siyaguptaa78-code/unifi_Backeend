@@ -80,10 +80,10 @@ async function seed() {
 
   const [adminUser] = await Promise.all([
     User.findOneAndUpdate(
-      { email: "admin@unicafe.demo" },
+      { email: "admin@unificafe.demo" },
       {
         name: "Vikram Malhotra (Super Admin)",
-        email: "admin@unicafe.demo",
+        email: "admin@unificafe.demo",
         mobile: "9876543210",
         passwordHash: adminPw,
         role: "SUPER_ADMIN",
@@ -96,10 +96,10 @@ async function seed() {
 
   const [supervisorUser] = await Promise.all([
     User.findOneAndUpdate(
-      { email: "supervisor@unicafe.demo" },
+      { email: "supervisor@unificafe.demo" },
       {
         name: "Rajesh Sharma (Area Supervisor)",
-        email: "supervisor@unicafe.demo",
+        email: "supervisor@unificafe.demo",
         mobile: "9876543211",
         passwordHash: demoPw,
         role: "SUPERVISOR",
@@ -112,10 +112,10 @@ async function seed() {
 
   const [ownerUser] = await Promise.all([
     User.findOneAndUpdate(
-      { email: "owner@unicafe.demo" },
+      { email: "owner@unificafe.demo" },
       {
         name: "Pooja Singhania (Franchise Owner)",
-        email: "owner@unicafe.demo",
+        email: "owner@unificafe.demo",
         mobile: "9876543212",
         passwordHash: demoPw,
         role: "FRANCHISE_OWNER",
@@ -128,10 +128,10 @@ async function seed() {
 
   const [managerUser] = await Promise.all([
     User.findOneAndUpdate(
-      { email: "manager@unicafe.demo" },
+      { email: "manager@unificafe.demo" },
       {
         name: "Anand Verma (Cafe Manager)",
-        email: "manager@unicafe.demo",
+        email: "manager@unificafe.demo",
         mobile: "9876543213",
         passwordHash: demoPw,
         role: "MANAGER",
@@ -144,10 +144,10 @@ async function seed() {
 
   const [staffUser] = await Promise.all([
     User.findOneAndUpdate(
-      { email: "staff@unicafe.demo" },
+      { email: "staff@unificafe.demo" },
       {
         name: "Deepak Patel (Cafe Staff)",
-        email: "staff@unicafe.demo",
+        email: "staff@unificafe.demo",
         mobile: "9876543214",
         passwordHash: demoPw,
         role: "STAFF",
@@ -160,10 +160,10 @@ async function seed() {
 
   const [primaryCustomer] = await Promise.all([
     User.findOneAndUpdate(
-      { email: "customer@unicafe.demo" },
+      { email: "customer@unificafe.demo" },
       {
         name: "Aakash Mehta (Customer)",
-        email: "customer@unicafe.demo",
+        email: "customer@unificafe.demo",
         mobile: "9876543215",
         passwordHash: demoPw,
         role: "CUSTOMER",
@@ -178,7 +178,7 @@ async function seed() {
   console.log("Seeding Franchise Packages...");
   const packagesData = [
     {
-      name: "UniCafe Express",
+      name: "Unifi Cafe Express",
       amount: 2500000,
       cafeSize: "400 - 600 sq ft",
       setupInclusions: ["Interior design layout", "Signage & branding elements", "POS hardware & counter setup", "Basic ventilation & audio"],
@@ -188,7 +188,7 @@ async function seed() {
       isDemo: true,
     },
     {
-      name: "UniCafe Lounge",
+      name: "Unifi Cafe Lounge",
       amount: 5000000,
       cafeSize: "800 - 1200 sq ft",
       setupInclusions: ["Full architectural architectural concept", "Custom bespoke furniture", "Dual RFID card gate / kiosk terminal", "Acoustic treatment"],
@@ -198,7 +198,7 @@ async function seed() {
       isDemo: true,
     },
     {
-      name: "UniCafe Premier Hub",
+      name: "Unifi Cafe Premier Hub",
       amount: 7500000,
       cafeSize: "1500 - 2200 sq ft",
       setupInclusions: ["Multi-zone seating layout (workspaces + lounge)", "High-speed enterprise Wi-Fi mesh", "Dual RFID/NFC turnstiles", "Merchandise display zone"],
@@ -208,7 +208,7 @@ async function seed() {
       isDemo: true,
     },
     {
-      name: "UniCafe Flagship Experience",
+      name: "Unifi Cafe Flagship Experience",
       amount: 10000000,
       cafeSize: "2500 - 4000 sq ft",
       setupInclusions: ["Flagship destination architecture", "Roastery showcase area", "Private meeting pod systems", "Turnstile NFC access management"],
@@ -243,7 +243,7 @@ async function seed() {
       amountPaid: 5000000,
       agreementDate: new Date("2025-06-15"),
       applicantName: "Pooja Singhania",
-      applicantEmail: "owner@unicafe.demo",
+      applicantEmail: "owner@unificafe.demo",
       applicantPhone: "9876543212",
       approvedBy: adminUser._id,
       approvedAt: new Date("2025-06-16"),
@@ -268,7 +268,7 @@ async function seed() {
       amountPaid: 3750000,
       agreementDate: new Date("2026-01-10"),
       applicantName: "Pooja Singhania",
-      applicantEmail: "owner@unicafe.demo",
+      applicantEmail: "owner@unificafe.demo",
       applicantPhone: "9876543212",
       approvedBy: adminUser._id,
       approvedAt: new Date("2026-01-12"),
@@ -302,7 +302,7 @@ async function seed() {
   console.log("Seeding Cafes...");
   const cafesData = [
     {
-      name: "UniCafe Indiranagar 100ft",
+      name: "Unifi Cafe Indiranagar 100ft",
       code: "UC-BLR-01",
       slug: "indiranagar-bangalore",
       address: {
@@ -313,7 +313,7 @@ async function seed() {
         pincode: "560038",
       },
       phone: "+91 80 4123 4567",
-      email: "indiranagar@unicafe.demo",
+      email: "indiranagar@unificafe.demo",
       openingHours: "07:30 - 23:30",
       seatingCapacity: 65,
       ownershipType: "FRANCHISE" as const,
@@ -325,7 +325,7 @@ async function seed() {
       isDemo: true,
     },
     {
-      name: "UniCafe Koramangala 4th Block",
+      name: "Unifi Cafe Koramangala 4th Block",
       code: "UC-BLR-02",
       slug: "koramangala-bangalore",
       address: {
@@ -336,7 +336,7 @@ async function seed() {
         pincode: "560034",
       },
       phone: "+91 80 4222 9876",
-      email: "koramangala@unicafe.demo",
+      email: "koramangala@unificafe.demo",
       openingHours: "08:00 - 23:00",
       seatingCapacity: 50,
       ownershipType: "FRANCHISE" as const,
@@ -347,7 +347,7 @@ async function seed() {
       isDemo: true,
     },
     {
-      name: "UniCafe Bandra Kurla Complex (BKC)",
+      name: "Unifi Cafe Bandra Kurla Complex (BKC)",
       code: "UC-MUM-01",
       slug: "bkc-mumbai",
       address: {
@@ -358,7 +358,7 @@ async function seed() {
         pincode: "400051",
       },
       phone: "+91 22 6677 8899",
-      email: "bkc@unicafe.demo",
+      email: "bkc@unificafe.demo",
       openingHours: "07:00 - 23:00",
       seatingCapacity: 75,
       ownershipType: "COMPANY" as const,
@@ -368,7 +368,7 @@ async function seed() {
       isDemo: true,
     },
     {
-      name: "UniCafe Connaught Place (CP)",
+      name: "Unifi Cafe Connaught Place (CP)",
       code: "UC-DEL-01",
       slug: "connaught-place-delhi",
       address: {
@@ -379,7 +379,7 @@ async function seed() {
         pincode: "110001",
       },
       phone: "+91 11 4355 6677",
-      email: "cp@unicafe.demo",
+      email: "cp@unificafe.demo",
       openingHours: "08:00 - 23:00",
       seatingCapacity: 60,
       ownershipType: "COMPANY" as const,
@@ -388,7 +388,7 @@ async function seed() {
       isDemo: true,
     },
     {
-      name: "UniCafe Cyber Hub",
+      name: "Unifi Cafe Cyber Hub",
       code: "UC-GGN-01",
       slug: "cyber-hub-gurgaon",
       address: {
@@ -399,7 +399,7 @@ async function seed() {
         pincode: "122002",
       },
       phone: "+91 124 498 7654",
-      email: "cyberhub@unicafe.demo",
+      email: "cyberhub@unificafe.demo",
       openingHours: "07:00 - 00:00",
       seatingCapacity: 85,
       ownershipType: "COMPANY" as const,
@@ -543,27 +543,27 @@ async function seed() {
   // 7. Customers (20+ Demo Customers with varying balances, hours, cards, profiles)
   console.log("Seeding 20+ Demo Customers with realistic profiles, memberships & cards...");
   const customerSeeds = [
-    { name: "Aakash Mehta", email: "customer@unicafe.demo", mobile: "9876543215", points: 4800, hours: 142, status: "ACTIVE" as const, cardUid: "E20000190601", cardType: "NFC" as const },
-    { name: "Rhea Sen", email: "rhea.sen@demo.unicafe", mobile: "9876543220", points: 5000, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190602", cardType: "NFC" as const },
-    { name: "Arjun Nair", email: "arjun.nair@demo.unicafe", mobile: "9876543221", points: 3450, hours: 98, status: "ACTIVE" as const, cardUid: "E20000190603", cardType: "RFID" as const },
-    { name: "Sneha Rao", email: "sneha.rao@demo.unicafe", mobile: "9876543222", points: 1200, hours: 24, status: "ACTIVE" as const, cardUid: "E20000190604", cardType: "NFC" as const },
-    { name: "Devansh Roy", email: "devansh.roy@demo.unicafe", mobile: "9876543223", points: 7800, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190605", cardType: "NFC" as const },
-    { name: "Kritika Joshi", email: "kritika.joshi@demo.unicafe", mobile: "9876543224", points: 450, hours: 6, status: "ACTIVE" as const, cardUid: "E20000190606", cardType: "RFID" as const },
-    { name: "Manish Reddy", email: "manish.reddy@demo.unicafe", mobile: "9876543225", points: 0, hours: 0, status: "ACTIVE" as const, cardUid: "E20000190607", cardType: "NFC" as const }, // Exhausted hours
-    { name: "Tanvi Saxena", email: "tanvi.saxena@demo.unicafe", mobile: "9876543226", points: 2900, hours: 85, status: "ACTIVE" as const, cardUid: "E20000190608", cardType: "NFC" as const },
-    { name: "Gaurav Bansal", email: "gaurav.bansal@demo.unicafe", mobile: "9876543227", points: 5000, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190609", cardType: "RFID" as const },
-    { name: "Aditi Iyer", email: "aditi.iyer@demo.unicafe", mobile: "9876543228", points: 150, hours: 0, status: "ACTIVE" as const, cardUid: "E20000190610", cardType: "NFC" as const }, // Zero hours
-    { name: "Varun Desai", email: "varun.desai@demo.unicafe", mobile: "9876543229", points: 6400, hours: 110, status: "ACTIVE" as const, cardUid: "E20000190611", cardType: "NFC" as const },
-    { name: "Meera Menon", email: "meera.menon@demo.unicafe", mobile: "9876543230", points: 0, hours: 0, status: "INACTIVE" as const, cardUid: "E20000190612", cardType: "VIRTUAL" as const }, // Inactive membership
-    { name: "Rohan Bhatia", email: "rohan.bhatia@demo.unicafe", mobile: "9876543231", points: 4100, hours: 135, status: "ACTIVE" as const, cardUid: "E20000190613", cardType: "NFC" as const },
-    { name: "Ananya Gupta", email: "ananya.gupta@demo.unicafe", mobile: "9876543232", points: 8900, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190614", cardType: "NFC" as const },
-    { name: "Prateek Chadha", email: "prateek.chadha@demo.unicafe", mobile: "9876543233", points: 3100, hours: 72, status: "ACTIVE" as const, cardUid: "E20000190615", cardType: "RFID" as const },
-    { name: "Ishaan Kulkarni", email: "ishaan.k@demo.unicafe", mobile: "9876543234", points: 1800, hours: 45, status: "ACTIVE" as const, cardUid: "E20000190616", cardType: "NFC" as const },
-    { name: "Simran Kapoor", email: "simran.k@demo.unicafe", mobile: "9876543235", points: 5000, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190617", cardType: "NFC" as const },
-    { name: "Kabir Sengupta", email: "kabir.s@demo.unicafe", mobile: "9876543236", points: 2200, hours: 55, status: "ACTIVE" as const, cardUid: "E20000190618", cardType: "RFID" as const },
-    { name: "Nisha Pillai", email: "nisha.pillai@demo.unicafe", mobile: "9876543237", points: 9500, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190619", cardType: "NFC" as const },
-    { name: "Kunal Chopra", email: "kunal.chopra@demo.unicafe", mobile: "9876543238", points: 3600, hours: 90, status: "ACTIVE" as const, cardUid: "E20000190620", cardType: "NFC" as const },
-    { name: "Deepa Nambiar", email: "deepa.n@demo.unicafe", mobile: "9876543239", points: 0, hours: 0, status: "INACTIVE" as const, cardUid: "E20000190621", cardType: "VIRTUAL" as const },
+    { name: "Aakash Mehta", email: "customer@unificafe.demo", mobile: "9876543215", points: 4800, hours: 142, status: "ACTIVE" as const, cardUid: "E20000190601", cardType: "NFC" as const },
+    { name: "Rhea Sen", email: "rhea.sen@demo.unificafe", mobile: "9876543220", points: 5000, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190602", cardType: "NFC" as const },
+    { name: "Arjun Nair", email: "arjun.nair@demo.unificafe", mobile: "9876543221", points: 3450, hours: 98, status: "ACTIVE" as const, cardUid: "E20000190603", cardType: "RFID" as const },
+    { name: "Sneha Rao", email: "sneha.rao@demo.unificafe", mobile: "9876543222", points: 1200, hours: 24, status: "ACTIVE" as const, cardUid: "E20000190604", cardType: "NFC" as const },
+    { name: "Devansh Roy", email: "devansh.roy@demo.unificafe", mobile: "9876543223", points: 7800, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190605", cardType: "NFC" as const },
+    { name: "Kritika Joshi", email: "kritika.joshi@demo.unificafe", mobile: "9876543224", points: 450, hours: 6, status: "ACTIVE" as const, cardUid: "E20000190606", cardType: "RFID" as const },
+    { name: "Manish Reddy", email: "manish.reddy@demo.unificafe", mobile: "9876543225", points: 0, hours: 0, status: "ACTIVE" as const, cardUid: "E20000190607", cardType: "NFC" as const }, // Exhausted hours
+    { name: "Tanvi Saxena", email: "tanvi.saxena@demo.unificafe", mobile: "9876543226", points: 2900, hours: 85, status: "ACTIVE" as const, cardUid: "E20000190608", cardType: "NFC" as const },
+    { name: "Gaurav Bansal", email: "gaurav.bansal@demo.unificafe", mobile: "9876543227", points: 5000, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190609", cardType: "RFID" as const },
+    { name: "Aditi Iyer", email: "aditi.iyer@demo.unificafe", mobile: "9876543228", points: 150, hours: 0, status: "ACTIVE" as const, cardUid: "E20000190610", cardType: "NFC" as const }, // Zero hours
+    { name: "Varun Desai", email: "varun.desai@demo.unificafe", mobile: "9876543229", points: 6400, hours: 110, status: "ACTIVE" as const, cardUid: "E20000190611", cardType: "NFC" as const },
+    { name: "Meera Menon", email: "meera.menon@demo.unificafe", mobile: "9876543230", points: 0, hours: 0, status: "INACTIVE" as const, cardUid: "E20000190612", cardType: "VIRTUAL" as const }, // Inactive membership
+    { name: "Rohan Bhatia", email: "rohan.bhatia@demo.unificafe", mobile: "9876543231", points: 4100, hours: 135, status: "ACTIVE" as const, cardUid: "E20000190613", cardType: "NFC" as const },
+    { name: "Ananya Gupta", email: "ananya.gupta@demo.unificafe", mobile: "9876543232", points: 8900, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190614", cardType: "NFC" as const },
+    { name: "Prateek Chadha", email: "prateek.chadha@demo.unificafe", mobile: "9876543233", points: 3100, hours: 72, status: "ACTIVE" as const, cardUid: "E20000190615", cardType: "RFID" as const },
+    { name: "Ishaan Kulkarni", email: "ishaan.k@demo.unificafe", mobile: "9876543234", points: 1800, hours: 45, status: "ACTIVE" as const, cardUid: "E20000190616", cardType: "NFC" as const },
+    { name: "Simran Kapoor", email: "simran.k@demo.unificafe", mobile: "9876543235", points: 5000, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190617", cardType: "NFC" as const },
+    { name: "Kabir Sengupta", email: "kabir.s@demo.unificafe", mobile: "9876543236", points: 2200, hours: 55, status: "ACTIVE" as const, cardUid: "E20000190618", cardType: "RFID" as const },
+    { name: "Nisha Pillai", email: "nisha.pillai@demo.unificafe", mobile: "9876543237", points: 9500, hours: 150, status: "ACTIVE" as const, cardUid: "E20000190619", cardType: "NFC" as const },
+    { name: "Kunal Chopra", email: "kunal.chopra@demo.unificafe", mobile: "9876543238", points: 3600, hours: 90, status: "ACTIVE" as const, cardUid: "E20000190620", cardType: "NFC" as const },
+    { name: "Deepa Nambiar", email: "deepa.n@demo.unificafe", mobile: "9876543239", points: 0, hours: 0, status: "INACTIVE" as const, cardUid: "E20000190621", cardType: "VIRTUAL" as const },
   ];
 
   const createdCustomers: { user: any; membership: any; card: any }[] = [];
@@ -888,8 +888,8 @@ async function seed() {
     {
       user: primaryCustomer._id,
       type: "VISIT_ENTRY",
-      title: "Checked into UniCafe Indiranagar",
-      message: "Welcome to UniCafe! Your session timer is currently active.",
+      title: "Checked into Unifi Cafe Indiranagar",
+      message: "Welcome to Unifi Cafe! Your session timer is currently active.",
       link: "/customer/visits",
       isDemo: true,
     },
@@ -916,15 +916,15 @@ async function seed() {
   ]);
 
   console.log("\n============================================================");
-  console.log("  UNICAFE SEED COMPLETED SUCCESSFULLY!");
+  console.log("  UNIFI CAFE SEED COMPLETED SUCCESSFULLY!");
   console.log("============================================================");
   console.log("  Demo Accounts:");
-  console.log("  - Super Admin:       admin@unicafe.demo      / Admin@123");
-  console.log("  - Area Supervisor:   supervisor@unicafe.demo / Demo@123");
-  console.log("  - Franchise Owner:   owner@unicafe.demo      / Demo@123");
-  console.log("  - Cafe Manager:      manager@unicafe.demo    / Demo@123");
-  console.log("  - Cafe Staff:        staff@unicafe.demo      / Demo@123");
-  console.log("  - Customer:          customer@unicafe.demo   / Demo@123");
+  console.log("  - Super Admin:       admin@unificafe.demo      / Admin@123");
+  console.log("  - Area Supervisor:   supervisor@unificafe.demo / Demo@123");
+  console.log("  - Franchise Owner:   owner@unificafe.demo      / Demo@123");
+  console.log("  - Cafe Manager:      manager@unificafe.demo    / Demo@123");
+  console.log("  - Cafe Staff:        staff@unificafe.demo      / Demo@123");
+  console.log("  - Customer:          customer@unificafe.demo   / Demo@123");
   console.log("============================================================\n");
 
   await mongoose.disconnect();

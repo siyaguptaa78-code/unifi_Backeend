@@ -1,4 +1,4 @@
-# UniCafe — Production Quality Assurance & Test Report
+# Unifi Cafe — Production Quality Assurance & Test Report
 
 **Execution Date:** November 1, 2026  
 **Platform Version:** 1.0.0 (Production Release)  

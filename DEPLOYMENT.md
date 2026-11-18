@@ -1,6 +1,6 @@
-# UniCafe — Production Deployment Guide
+# Unifi Cafe — Production Deployment Guide
 
-This guide provides end-to-end instructions for deploying the UniCafe platform to production:
+This guide provides end-to-end instructions for deploying the Unifi Cafe platform to production:
 - **Frontend Application:** Deployed on **Vercel**
 - **Backend API Service:** Deployed on **Render**
 - **Database:** Hosted on **MongoDB Atlas** (Replica Set enabled by default)
@@ -67,7 +67,7 @@ git push -u origin main
 
 ## 3. MongoDB Atlas Configuration
 
-UniCafe requires MongoDB Replica Set capabilities for multi-document ACID transactions across memberships, points ledgers, and orders. **All MongoDB Atlas clusters provide replica sets out of the box.**
+Unifi Cafe requires MongoDB Replica Set capabilities for multi-document ACID transactions across memberships, points ledgers, and orders. **All MongoDB Atlas clusters provide replica sets out of the box.**
 
 ### Target Cluster Details
 - **Cluster Host:** `cluster0.m0h122z.mongodb.net`
@@ -105,7 +105,7 @@ The backend is configured with `render.yaml` for automated deployment.
 1. Click **New +** -> **Web Service**.
 2. Connect `https://github.com/anuraagmishra21-spec/unificafe_backend.git`.
 3. Configure service settings:
-   - **Name:** `unicafe-backend`
+   - **Name:** `unifi-cafe-backend`
    - **Region:** `Oregon (US West)` or nearest to your users
    - **Branch:** `main`
    - **Runtime:** `Node`
@@ -124,7 +124,7 @@ The backend is configured with `render.yaml` for automated deployment.
    SMS_PROVIDER=mock
    WHATSAPP_PROVIDER=mock
    ```
-5. Click **Create Web Service**. Once deployed, note your service URL (e.g. `https://unicafe-backend.onrender.com`).
+5. Click **Create Web Service**. Once deployed, note your service URL (e.g. `https://unifi-cafe-backend.onrender.com`).
 
 ---
 
@@ -145,7 +145,7 @@ The backend is configured with `render.yaml` for automated deployment.
    MONGODB_URI=mongodb+srv://anuraagmishra21_db_user:<PASSWORD>@cluster0.m0h122z.mongodb.net/unicafe?retryWrites=true&w=majority&appName=Cluster0
    JWT_SECRET=super-secret-jwt-key-min-32-chars-long-production-xyz
    APP_URL=https://<YOUR_VERCEL_PROJECT>.vercel.app
-   BACKEND_API_URL=https://unicafe-backend.onrender.com
+   BACKEND_API_URL=https://unifi-cafe-backend.onrender.com
    PAYMENT_MODE=demo
    EMAIL_PROVIDER=mock
    SMS_PROVIDER=mock
@@ -166,11 +166,11 @@ npx tsx scripts/seed.ts
 ```
 
 ### Initial Administrative Credentials
-- **Super Admin:** `admin@unicafe.in` / `Admin@12345`
-- **Area Supervisor:** `supervisor@unicafe.in` / `Supervisor@12345`
-- **Franchise Owner:** `franchise@unicafe.in` / `Franchise@12345`
-- **Cafe Manager:** `manager.koramangala@unicafe.in` / `Manager@12345`
-- **Cafe Staff:** `staff.koramangala@unicafe.in` / `Staff@12345`
+- **Super Admin:** `admin@unificafe.in` / `Admin@12345`
+- **Area Supervisor:** `supervisor@unificafe.in` / `Supervisor@12345`
+- **Franchise Owner:** `franchise@unificafe.in` / `Franchise@12345`
+- **Cafe Manager:** `manager.koramangala@unificafe.in` / `Manager@12345`
+- **Cafe Staff:** `staff.koramangala@unificafe.in` / `Staff@12345`
 - **Demo Customer:** `rahul@example.com` / `Customer@12345` (₹5,000 Recharge, 5,000 points, 150h active)
 
 ---
@@ -179,8 +179,8 @@ npx tsx scripts/seed.ts
 
 1. **Backend Health Check:**
    ```bash
-   curl -I https://unicafe-backend.onrender.com/health
-   # Response: HTTP/2 200 OK {"status":"ok","service":"unicafe-backend","database":"connected"}
+   curl -I https://unifi-cafe-backend.onrender.com/health
+   # Response: HTTP/2 200 OK {"status":"ok","service":"unifi-cafe-backend","database":"connected"}
    ```
 2. **Frontend Public Pages:**
    - Homepage: `https://<VERCEL_APP>/`

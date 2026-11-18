@@ -20,7 +20,7 @@ apiRouter.use(authenticate);
 apiRouter.get("/health", (req, res) => {
   res.json({
     status: "ok",
-    service: "unicafe-backend",
+    service: "unifi-cafe-backend",
     version: "1.0.0",
     uptimeSeconds: process.uptime(),
     timestamp: new Date().toISOString(),

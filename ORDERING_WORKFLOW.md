@@ -1,12 +1,12 @@
-# UniCafe — Online Ordering & Pre-Arrival Architecture & Workflow
+# Unifi Cafe — Online Ordering & Pre-Arrival Architecture & Workflow
 
 ## Overview & Executive Principles
 
-UniCafe supports two distinct, cafe-centric ordering modes designed for maximum operational efficiency and customer convenience. **UniCafe strictly DOES NOT offer home delivery.** All food preparation, inventory deduction, and order fulfillment occur exclusively at physical UniCafe branches.
+Unifi Cafe supports two distinct, cafe-centric ordering modes designed for maximum operational efficiency and customer convenience. **Unifi Cafe strictly DOES NOT offer home delivery.** All food preparation, inventory deduction, and order fulfillment occur exclusively at physical Unifi Cafe branches.
 
 ```
 +-----------------------------------------------------------------------------------+
-|                              UNICAFE ORDERING SYSTEM                              |
+|                              UNIFI CAFE ORDERING SYSTEM                           |
 +---------------------------------------------------------+-------------------------+
                                                           |
                  +----------------------------------------+----------------------------------------+
@@ -58,7 +58,7 @@ UniCafe supports two distinct, cafe-centric ordering modes designed for maximum 
 - **Eligibility:** Available to any registered customer from anywhere (home, office, transit).
 - **Core Constraints:**
   - **Zero home delivery:** No address collection, no delivery fees, no third-party courier dispatch.
-  - Branch selection required: Customer must pick the exact UniCafe branch they intend to visit.
+  - Branch selection required: Customer must pick the exact Unifi Cafe branch they intend to visit.
   - Branch capability check: Selected cafe must have `acceptsPreOrders: true` and be within active operating hours.
   - Arrival time slot required: Customer selects an estimated arrival window (`15–20 min`, `30 min`, `45 min`, `1 hour`, `1.5 hours`).
 - **Workflow:**

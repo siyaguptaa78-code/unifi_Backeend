@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/health", (req, res) => {
   res.json({
     status: "ok",
-    service: "unicafe-backend",
+    service: "unifi-cafe-backend",
     version: "1.0.0",
     database: mongoose.connection.readyState === 1 ? "connected" : "connecting",
     timestamp: new Date().toISOString(),
@@ -46,7 +46,7 @@ app.use(errorHandler);
 
 async function start() {
   console.log("\n=======================================================");
-  console.log("       ☕ UNICAFE STANDALONE BACKEND SERVICE");
+  console.log("       ☕ UNIFI CAFE STANDALONE BACKEND SERVICE");
   console.log("=======================================================\n");
 
   try {
@@ -58,7 +58,7 @@ async function start() {
   }
 
   app.listen(PORT, () => {
-    console.log(`🚀 UniCafe Backend API listening on port ${PORT}`);
+    console.log(`🚀 Unifi Cafe Backend API listening on port ${PORT}`);
     console.log(`   Health Check: http://localhost:${PORT}/health`);
     console.log(`   API Endpoint: http://localhost:${PORT}/api\n`);
   });

@@ -24,7 +24,7 @@ export async function signSession(payload: SessionPayload): Promise<string> {
     .setProtectedHeader({ alg: "HS256" })
     .setSubject(payload.sub)
     .setIssuedAt()
-    .setIssuer("unicafe")
+    .setIssuer("unifi-cafe")
     .setExpirationTime(`${sessionTtlSeconds()}s`)
     .sign(secret());
 }
@@ -32,7 +32,7 @@ export async function signSession(payload: SessionPayload): Promise<string> {
 export async function verifySession(token: string | undefined): Promise<SessionPayload | null> {
   if (!token) return null;
   try {
-    const { payload } = await jwtVerify(token, secret(), { issuer: "unicafe" });
+    const { payload } = await jwtVerify(token, secret(), { issuer: "unifi-cafe" });
     if (!payload.sub) return null;
     return { sub: payload.sub, role: payload.role as Role, tv: Number(payload.tv ?? 0), name: String(payload.name ?? "") };
   } catch {

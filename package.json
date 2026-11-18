@@ -1,7 +1,7 @@
 {
-  "name": "unicafe-backend",
+  "name": "unifi-cafe-backend",
   "version": "1.0.0",
-  "description": "UniCafe - Production Backend Service for Multi-Location Cafe Platform",
+  "description": "Unifi Cafe - Production Backend Service for Multi-Location Cafe Platform",
   "scripts": {
     "start": "tsx src/server.ts",
     "dev": "tsx watch src/server.ts",

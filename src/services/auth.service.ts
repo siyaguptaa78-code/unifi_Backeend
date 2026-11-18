@@ -49,7 +49,7 @@ export async function authenticate(identifier: string, password: string) {
   const query = /^[6-9]\d{9}$/.test(id) ? { mobile: id } : { email: id };
   const user = await User.findOne(query).select("+passwordHash");
   // Constant-ish time: always run a bcrypt compare to avoid user enumeration through timing.
-  const hash = user?.passwordHash ?? (DUMMY_HASH ??= bcrypt.hashSync("unicafe-dummy-password", BCRYPT_ROUNDS));
+  const hash = user?.passwordHash ?? (DUMMY_HASH ??= bcrypt.hashSync("unifi-cafe-dummy-password", BCRYPT_ROUNDS));
   const valid = await verifyPassword(password, hash);
   if (!user || !valid) throw Errors.unauthorized("Invalid email/mobile or password");
   if (user.status !== "ACTIVE") throw Errors.forbidden("Your account is suspended. Please contact support.");
@@ -71,7 +71,7 @@ export async function requestPasswordReset(identifier: string) {
   const token = randomHex(32).toLowerCase();
   await User.updateOne({ _id: user._id }, { resetTokenHash: sha256(token), resetTokenExpiresAt: new Date(Date.now() + 30 * 60 * 1000) });
   const url = `${process.env.APP_URL || "http://localhost:3000"}/reset-password?token=${token}`;
-  await getProvider("EMAIL").send(user.email, "Reset your UniCafe password", `Reset your password: ${url} (valid for 30 minutes)`);
+  await getProvider("EMAIL").send(user.email, "Reset your Unifi Cafe password", `Reset your password: ${url} (valid for 30 minutes)`);
   await logAudit({ id: String(user._id), role: user.role as Role, name: user.name, email: user.email, mobile: user.mobile }, "AUTH_RESET_REQUESTED", "User", user._id);
   const isMock = (process.env.EMAIL_PROVIDER || "mock") === "mock";
   return { devResetUrl: isMock && process.env.NODE_ENV !== "production" ? url : null };

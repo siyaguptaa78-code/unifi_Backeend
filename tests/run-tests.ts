@@ -46,7 +46,7 @@ function assert(cond: any, msg: string) {
 
 async function run() {
   console.log("\n=======================================================");
-  console.log("  UNICAFE MANDATORY BUSINESS LOGIC VERIFICATION SUITE");
+  console.log("  UNIFI CAFE MANDATORY BUSINESS LOGIC VERIFICATION SUITE");
   console.log("=======================================================\n");
 
   console.log("1. Starting isolated MongoDB Memory Replica Set...");
@@ -162,7 +162,7 @@ async function run() {
     // 6. NFC/RFID Smart Card Entry, Zero-Hours Block & Safety Exit
     console.log("\n[Test 6] NFC/RFID Entry, Zero-Hours Block & Safety Exit:");
     const cafe = await Cafe.create({
-      name: "UniCafe Indiranagar",
+      name: "Unifi Cafe Indiranagar",
       code: "UC-BLR-01",
       slug: "indiranagar",
       address: { line1: "100ft Rd", city: "Bengaluru", state: "KA", pincode: "560038" },
@@ -183,7 +183,7 @@ async function run() {
     const staffActor: AuthUser = {
       id: new mongoose.Types.ObjectId().toString(),
       name: "Staff",
-      email: "staff@unicafe.demo",
+      email: "staff@unificafe.demo",
       mobile: "9876543299",
       role: "SUPER_ADMIN",
     };
@@ -278,7 +278,7 @@ async function run() {
     console.log("\n[Test 8] Role-based Cafe Scoping & Restrictions:");
     const supUser = await User.create({
       name: "Supervisor Amit",
-      email: "amit.sup@unicafe.demo",
+      email: "amit.sup@unificafe.demo",
       mobile: "9876543288",
       passwordHash: "hash",
       role: "SUPERVISOR",
@@ -316,7 +316,7 @@ async function run() {
     // 9. Online Pre-Order from Outside the Cafe (Dine-In / Self-Pickup)
     console.log("\n[Test 9] Online Pre-Order Before Arrival (Dine-In / Self-Pickup):");
     const preOrderCafe = await Cafe.create({
-      name: "UniCafe CyberCity PreOrder",
+      name: "Unifi Cafe CyberCity PreOrder",
       code: "C-PRE-01",
       slug: "c-pre-01",
       address: { line1: "DLF CyberCity", city: "Gurgaon", state: "HR", pincode: "122002" },
@@ -378,7 +378,7 @@ async function run() {
     console.log("\n[Test 10] Super Admin End-to-End Authority & Audited CRUD:");
     const adminUser = await User.create({
       name: "Super Administrator",
-      email: "master.admin@unicafe.demo",
+      email: "master.admin@unificafe.demo",
       mobile: "9999900000",
       passwordHash: "hash",
       role: "SUPER_ADMIN",
@@ -448,7 +448,7 @@ async function run() {
     const [newManager] = await User.create([
       {
         name: "Ramesh Store Manager",
-        email: "ramesh.mgr@unicafe.demo",
+        email: "ramesh.mgr@unificafe.demo",
         mobile: "9876500112",
         passwordHash: "hash",
         role: "MANAGER",

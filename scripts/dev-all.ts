@@ -8,7 +8,7 @@ async function main() {
   if (!fs.existsSync(dbPath)) fs.mkdirSync(dbPath, { recursive: true });
 
   console.log("\n=======================================================");
-  console.log("       ☕ UNICAFE FULL-STACK LOCAL RUNNER");
+  console.log("       ☕ UNIFI CAFE FULL-STACK LOCAL RUNNER");
   console.log("=======================================================\n");
 
   console.log("1. Starting local MongoDB Replica Set on port 27017...");
@@ -36,7 +36,7 @@ async function main() {
   });
 
   const cleanup = async () => {
-    console.log("\nStopping UniCafe servers...");
+    console.log("\nStopping Unifi Cafe servers...");
     try {
       nextProcess.kill();
     } catch {}
@@ -61,7 +61,7 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("Failed to start UniCafe:", err);
+  console.error("Failed to start Unifi Cafe:", err);
   process.exit(1);
 });
 

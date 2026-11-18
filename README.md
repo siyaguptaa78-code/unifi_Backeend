@@ -1,6 +1,6 @@
-# UniCafe — Production Backend Service
+# Unifi Cafe — Production Backend Service
 
-Production-ready, independently deployable Node.js & Express REST API service for the UniCafe multi-location cafe membership, access control, and online ordering platform.
+Production-ready, independently deployable Node.js & Express REST API service for the Unifi Cafe multi-location cafe membership, access control, and online ordering platform.
 
 ---
 
